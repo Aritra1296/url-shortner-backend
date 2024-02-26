@@ -44,7 +44,6 @@ app.post("/shortUrl", async (req, res) => {
 app.get("/:shortUrl", async (req, res) => {
   const data = await Url.findOne({ shortUrl: req.params.shortUrl });
   if (data == null) return res.sendStatus(404);
-  //res.redirect(data.fullUrl);
+  res.redirect(data.fullUrl);
   res.json(data);
-  
 });
